@@ -3,7 +3,7 @@ import Table from "./Table";
 
 const Form = ()  => {
 
-  const [editedContact, setEditedContact] = useState({})
+  const [editedContact, setEditedContact] = useState()
   const [show, setShow] = useState(false)
   const [contacts, setContacts] = useState([]);
   const [state, setState] = useState([{
