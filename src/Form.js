@@ -6,12 +6,12 @@ const Form = ()  => {
   const [editedContact, setEditedContact] = useState()
   const [show, setShow] = useState(false)
   const [contacts, setContacts] = useState([]);
-  const [state, setState] = useState([{
+  const [state, setState] = useState({
     name: "",
     email: "",
     age: "",
     gender: ""
-  }]);
+  });
 
   const getData = (event) => {
     let fieldName = event.target.getAttribute("name");
