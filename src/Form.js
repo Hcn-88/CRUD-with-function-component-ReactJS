@@ -61,10 +61,10 @@ const Form = ()  => {
   }
 
   return (
-    <div className="container">
+    <div className="container d-flex flex-column gap-4">
       <form className="w-50 mx-auto d-flex flex-column gap-3" autoComplete="off" onSubmit={postData}>
         <input
-          className="form-control mt-3"
+          className="form-control"
           type="text"
           name="name"
           value={state.name}
