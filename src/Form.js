@@ -62,7 +62,7 @@ const Form = ()  => {
 
   return (
     <div className="container d-flex flex-column gap-4">
-      <form className="w-50 mx-auto d-flex flex-column gap-3" autoComplete="off" onSubmit={postData}>
+      <form className="w-50 mx-auto my-3 d-flex flex-column gap-3" autoComplete="off" onSubmit={postData}>
         <input
           className="form-control"
           type="text"
