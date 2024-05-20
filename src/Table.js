@@ -2,6 +2,7 @@ import React from 'react';
 
 const Table = (props) => {
 
+  // DESTRUCTURING THE PROPS
   const { contacts, deleteContact, selectContact } = props;
 
   return (

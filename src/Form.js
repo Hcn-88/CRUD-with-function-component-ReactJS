@@ -6,18 +6,23 @@ const Form = ()  => {
   const [editedContact, setEditedContact] = useState({})
   const [show, setShow] = useState(false)
   const [contacts, setContacts] = useState([]);
-  const [state, setState] = useState([{
+  const [state, setState] = useState({
     name: "",
     email: "",
     age: "",
     gender: ""
-  }]);
+  });
 
   const getData = (event) => {
-    let fieldName = event.target.getAttribute("name");
-    let fieldValue = event.target.value;
-    const newContact = {...state}
-    newContact[fieldName] = fieldValue;
+    // let fieldName = event.target.getAttribute("name");
+    // let fieldValue = event.target.value;
+    // const newContact = {...state}
+    // newContact[fieldName] = fieldValue;
+    // setState(newContact);
+    let name = event.target.name;
+    let value = event.target.value;
+    const newContact = { ...state };
+    newContact[name] = value;
     setState(newContact);
   }
   
@@ -33,10 +38,19 @@ const Form = ()  => {
   };
 
   const removeContact = (ind) => {
-    let updatedContact = contacts.filter((obj, key) => (
-      key !== ind
-    ));
-    setContacts(updatedContact);
+
+    // THERE ARE TWO WAYS TO REMOVE A CONTACT
+
+    // THE FIRST WAY
+    // let updatedContact = contacts.filter((obj, key) => (
+    //   key !== ind
+    // ));
+    // setContacts(updatedContact);
+
+    // THE OTHER WAY
+    setContacts((prev) => {
+      return prev.filter((person, index) => index !== ind)
+    })
   }
 
   const contactSelected = (ind) => {
@@ -62,7 +76,11 @@ const Form = ()  => {
 
   return (
     <div className="container">
-      <form className="w-50 mx-auto" autoComplete="off" onSubmit={postData}>
+      <form
+        className="my-3 d-flex flex-column gap-3"
+        autoComplete="off"
+        onSubmit={postData}
+      >
         <input
           className="form-control mt-3"
           type="text"
@@ -104,13 +122,14 @@ const Form = ()  => {
             Submit
           </button>
         ) : (
-          ""
+          <button
+            className="btn btn-info d-block w-100 mx-auto"
+            onClick={updateContact}
+          >
+            Update
+          </button>
         )}
       </form>
-      { show ?
-      <button className="btn btn-info d-block w-50 mx-auto" onClick={updateContact}>
-        Update
-      </button> : "" }
       <Table
         contacts={contacts}
         deleteContact={removeContact}
