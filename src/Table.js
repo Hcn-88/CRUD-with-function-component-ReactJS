@@ -7,7 +7,7 @@ const Table = (props) => {
 
   return (
     <div>
-      <table className="table table-striped table-bordered text-center mt-5">
+      <table className="table table-striped table-bordered text-center">
         <thead className="table-light">
           <tr>
             <th>Full Name</th>

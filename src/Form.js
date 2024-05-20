@@ -3,7 +3,7 @@ import Table from "./Table";
 
 const Form = ()  => {
 
-  const [editedContact, setEditedContact] = useState({})
+  const [editedContact, setEditedContact] = useState()
   const [show, setShow] = useState(false)
   const [contacts, setContacts] = useState([]);
   const [state, setState] = useState({
@@ -75,14 +75,14 @@ const Form = ()  => {
   }
 
   return (
-    <div className="container">
-      <form
-        className="my-3 d-flex flex-column gap-3"
-        autoComplete="off"
-        onSubmit={postData}
-      >
+
+    <div className="container d-flex flex-column gap-4">
+      <form 
+        className="w-50 mx-auto my-3 d-flex flex-column gap-3" 
+        autoComplete="off" 
+        onSubmit={postData}>
         <input
-          className="form-control mt-3"
+          className="form-control"
           type="text"
           name="name"
           value={state.name}
@@ -91,7 +91,7 @@ const Form = ()  => {
           required
         />
         <input
-          className="form-control my-3"
+          className="form-control"
           type="text"
           name="email"
           value={state.email}
@@ -109,7 +109,7 @@ const Form = ()  => {
           required
         />
         <input
-          className="form-control my-3"
+          className="form-control"
           type="text"
           name="gender"
           value={state.gender}
